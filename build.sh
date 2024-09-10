@@ -18,5 +18,3 @@ T_ELAPSED=$(((T_END - T_START)/ $CST_NANO_TO_MS))
 echo "----------------------------"
 echo "   Compile :: $T_ELAPSED ms "
 echo "----------------------------"
-
-$OUTPUT_FILE
