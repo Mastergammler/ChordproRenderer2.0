@@ -33,7 +33,20 @@ void Debug_PrintChords(ChordproContent content)
             LineElement cur = line.elements[i];
             if (!cur.is_chord) continue;
 
-            cout << cur.content << " ";
+            cout << cur.content;
+            if (cur.chord.number > -1)
+            {
+                cout << "(" << cur.chord.number;
+            }
+            if (cur.chord.alternate_bass > -1)
+            {
+                cout << "/" << cur.chord.alternate_bass;
+            }
+            if (cur.chord.number > -1)
+            {
+                cout << ")";
+            }
+            cout << " ";
         }
         cout << "\n";
     }

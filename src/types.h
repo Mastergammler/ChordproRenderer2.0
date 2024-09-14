@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -10,6 +11,7 @@ using std::cout;
 using std::endl;
 using std::getline;
 using std::ifstream;
+using std::map;
 using std::string;
 using std::vector;
 
@@ -19,10 +21,19 @@ struct Pair
     string value;
 };
 
+const int CHORD_UNINIT = -1;
+
+struct Chord
+{
+    int number;
+    int alternate_bass;
+};
+
 struct LineElement
 {
     bool is_chord;
     string content;
+    Chord chord;
 };
 
 // TODO: it seems like the concept of metadat lines etc diverges a bit
@@ -40,22 +51,7 @@ struct ChordproContent
     vector<Pair> instruction_lines;
     vector<ChordproLine> chord_lines;
     vector<ChordproLine> kvp_lines;
+    vector<LineElement*> all_chords;
 
     int total_lines;
-};
-
-enum Key
-{
-    C,
-    CS,
-    D,
-    DS,
-    E,
-    F,
-    FS,
-    G,
-    GS,
-    A,
-    AS,
-    B
 };

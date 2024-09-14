@@ -99,6 +99,14 @@ void parse_chordpro(ChordproContent* content)
     // parsing chord lines
     for (int i = 0; i < content->chord_lines.size(); i++)
     {
-        parse_chord_line(&content->chord_lines[i]);
+        ChordproLine* line = &content->chord_lines[i];
+        parse_chord_line(line);
+
+        // accumulate for easy access
+        for (int i = 0; i < line->elements.size(); i++)
+        {
+            LineElement* ele = &line->elements[i];
+            if (ele->is_chord) content->all_chords.push_back(ele);
+        }
     }
 }
