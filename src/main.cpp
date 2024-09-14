@@ -1,13 +1,14 @@
+#include "debug.cpp"
 #include "file.cpp"
 #include "parser.cpp"
-#include <iostream>
+#include "types.h"
 
 using std::cout;
 using std::endl;
 
 int main(int argc, char* argv[])
 {
-    cout << "Chordpro Renderer 2.0\n";
+    cout << "Chordpro Renderer 2.0\n\n";
 
     // arg 0 is always the relative program path
     if (argc > 1)
@@ -16,7 +17,9 @@ int main(int argc, char* argv[])
 
         ChordproContent chordpro = {};
         read_file(&chordpro, argv[1]);
-        parse_chordpro(chordpro);
+        parse_chordpro(&chordpro);
+
+        Debug_PrintChords(chordpro);
     }
 
     cout << endl;

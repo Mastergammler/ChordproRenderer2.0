@@ -22,9 +22,13 @@ void read_file(ChordproContent* content, const char* path)
         cpl.content = line;
 
         if (isKvpLine)
+        {
             content->kvp_lines.push_back(cpl);
+        }
         else if (isChordLine)
+        {
             content->chord_lines.push_back(cpl);
+        }
         else
         {
             // do nothing, because irrelevant text or empty line
@@ -34,7 +38,8 @@ void read_file(ChordproContent* content, const char* path)
     }
 
     content->total_lines = content->chord_lines.size() +
-                           content->kvp_lines.size();
+                           content->kvp_lines.size() +
+                           content->instruction_lines.size();
 
-    cout << "File has " << content->total_lines << " lines";
+    cout << "File has " << content->total_lines << " lines\n";
 }
