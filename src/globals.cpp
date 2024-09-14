@@ -7,6 +7,8 @@ static map<int, string> KeyMap;
 const char SHARP = '#';
 const char FLAT = 'b';
 
+const int KEY_MAX_COUNT = 12;
+
 void Globals_Init()
 {
     KeyMap[0] = "C";

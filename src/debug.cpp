@@ -34,15 +34,15 @@ void Debug_PrintChords(ChordproContent content)
             if (!cur.is_chord) continue;
 
             cout << cur.content;
-            if (cur.chord.number > -1)
+            if (cur.main_chord.number > -1)
             {
-                cout << "(" << cur.chord.number;
+                cout << "(" << cur.main_chord.number;
             }
-            if (cur.chord.alternate_bass > -1)
+            if (cur.alternate_bass.number > -1)
             {
-                cout << "/" << cur.chord.alternate_bass;
+                cout << "/" << cur.alternate_bass.number;
             }
-            if (cur.chord.number > -1)
+            if (cur.main_chord.number > -1)
             {
                 cout << ")";
             }

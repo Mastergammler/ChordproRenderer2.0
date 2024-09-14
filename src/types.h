@@ -1,8 +1,10 @@
 #pragma once
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -26,14 +28,15 @@ const int CHORD_UNINIT = -1;
 struct Chord
 {
     int number;
-    int alternate_bass;
+    int char_count;
 };
 
 struct LineElement
 {
     bool is_chord;
     string content;
-    Chord chord;
+    Chord main_chord;
+    Chord alternate_bass;
 };
 
 // TODO: it seems like the concept of metadat lines etc diverges a bit
