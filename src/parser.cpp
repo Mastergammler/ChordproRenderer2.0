@@ -67,6 +67,8 @@ void parse_chord_line(ChordproLine* line)
     }
 }
 
+// FIXME: i can't just omit lines with just text
+//  -> becaues there is no guarantee that they are not used!
 void parse_chordpro(ChordproContent* content)
 {
     for (int i = 0; i < content->kvp_lines.size(); i++)
@@ -89,6 +91,7 @@ void parse_chordpro(ChordproContent* content)
         {
             // TODO: this should retain line information?!
             content->instruction_lines.push_back(p);
+            content->kvp_lines[i].is_instruction = true;
         }
         else
         {

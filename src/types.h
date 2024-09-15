@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -14,6 +15,7 @@ using std::endl;
 using std::getline;
 using std::ifstream;
 using std::map;
+using std::sort;
 using std::string;
 using std::vector;
 
@@ -43,6 +45,7 @@ struct LineElement
 //  this is not quite the same
 struct ChordproLine
 {
+    bool is_instruction;
     int line_number;
     string content;
     vector<LineElement> elements;

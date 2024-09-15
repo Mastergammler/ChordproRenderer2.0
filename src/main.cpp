@@ -41,7 +41,8 @@ int main(int argc, char* argv[])
             transpose(&chordpro, transposeBy);
         }
 
-        Debug_PrintChords(chordpro);
+        // Debug_PrintChords(chordpro);
+        Debug_PrintSheet(chordpro);
     }
 
     cout << endl;

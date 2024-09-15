@@ -51,3 +51,51 @@ void Debug_PrintChords(ChordproContent content)
         cout << "\n";
     }
 }
+
+bool compareByLineNo(const ChordproLine a, const ChordproLine b)
+{
+    return a.line_number < b.line_number;
+}
+
+void Debug_PrintSheet(ChordproContent content)
+{
+    vector<ChordproLine> allLines;
+
+    for (ChordproLine line : content.kvp_lines)
+        allLines.push_back(line);
+    for (ChordproLine line : content.chord_lines)
+        allLines.push_back(line);
+
+    sort(allLines.begin(), allLines.end(), compareByLineNo);
+
+    for (ChordproLine line : allLines)
+    {
+        string content;
+        if (line.elements.size() > 0)
+        {
+            for (auto ele : line.elements)
+            {
+                if (ele.is_chord)
+                {
+                    content.append("[");
+                    content.append(ele.content);
+                    content.append("]");
+                }
+                else
+                {
+                    content.append(ele.content);
+                }
+            }
+        }
+        else
+        {
+            content = line.content;
+        }
+
+        if (line.is_instruction)
+        {
+            cout << "\n";
+        }
+        cout << /*line.line_number << " | " << */ content << "\n";
+    }
+}
